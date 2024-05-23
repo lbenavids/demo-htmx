@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
+    <style>
+        .loader {
+            position: absolute;
+            right: 50%;
+            top:40%;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .htmx-indicator{
+            display:none;
+        }
+        .htmx-request .htmx-indicator{
+            display:inline;
+        }
+        .htmx-request.htmx-indicator{
+            display:inline;
+        }
+
+    </style>
+</head>
+<body>
+hello
+
+<div id="container">
+    no users
+    <div id="loading" class="loader htmx-indicator">
+        <!-- You could add a spinner or any type of loading animation here -->
+    </div>
+</div>
+<button hx-get="/users/all" hx-trigger="click" hx-target="#container" hx-indicator="#loading">
+    Load Users
+</button>
+
+</body>
+</html>
