@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 @RequestMapping("/users")
 class UserController(
     private val userRepository: UserRepository,
-    repository: UserRepository
 ) {
 
     @GetMapping

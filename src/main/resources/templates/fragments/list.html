@@ -1,3 +1,6 @@
-<ul>
-    <li th:each="user: ${users}" th:text="${user.name}"></li>
-</ul>
+<dl>
+    <th:block th:each="user: ${users}">
+        <dt th:text="'name: ' + ${user.name}"></dt>
+        <dd th:text="'userName: ' + ${user.username}"></dd>
+    </th:block>
+</dl>
